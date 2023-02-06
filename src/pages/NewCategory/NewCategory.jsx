@@ -1,20 +1,20 @@
-import { useState } from "react"
-import styles from './NewCategory.module.css'
+import { useState } from "react";
+import styles from "./NewCategory.module.css";
 
 const NewCategory = (props) => {
   const [form, setForm] = useState({
-    title: '',
-    text: '',
-  })
+    title: "",
+    color: "",
+  });
 
   const handleChange = ({ target }) => {
-    setForm({ ...form, [target.name]: target.value })
-  }
+    setForm({ ...form, [target.name]: target.value });
+  };
 
   const handleSubmit = (e) => {
-    e.preventDefault()
-    props.handleAddCategory(form)
-  }
+    e.preventDefault();
+    props.handleAddCategory(form);
+  };
 
   return (
     <main className={styles.container}>
@@ -29,17 +29,7 @@ const NewCategory = (props) => {
           placeholder="Title"
           onChange={handleChange}
         />
-          <label htmlFor="text-input">Text</label>
-        <textarea
-          required
-          type="text"
-          name="text"
-          id="text-input"
-          value={form.text}
-          placeholder="Text"
-          onChange={handleChange}
-        />
-                <label htmlFor="color-input">Color</label>
+        <label htmlFor="color-input">Color</label>
         <select
           required
           name="color"
@@ -56,7 +46,7 @@ const NewCategory = (props) => {
         <button type="submit">SUBMIT</button>
       </form>
     </main>
-  )
-}
+  );
+};
 
-export default NewCategory
+export default NewCategory;
