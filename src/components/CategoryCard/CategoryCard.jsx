@@ -21,20 +21,7 @@ const CategoryCard = ({ category }) => {
   )
 }
 
-// const NewCategory = (props) => {
-//   const [form, setForm] = useState({
-//     name: '',
-//     description: '',
-//   })
 
-//   const handleChange = ({ target }) => {
-//     setForm({ ...form, [target.name]: target.value })
-//   }
-
-//   const handleSubmit = (e) => {
-//     e.preventDefault()
-		// Update this line shortly...
-//   }
 
 export default CategoryCard;
 
