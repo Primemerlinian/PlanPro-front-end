@@ -42,6 +42,11 @@ const MyProfile = () => {
         <input type="text" />
         <button> submit </button>
       </form>
+      <form>
+      <h2>Create an inspirational quote</h2>
+      <input type="text" />
+      <button>Submit</button>
+    </form>
     </main>
   )
 }

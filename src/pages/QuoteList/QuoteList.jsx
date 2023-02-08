@@ -1,11 +1,32 @@
-import styles from './QuoteList.module.css'
+// import React, { useState } from "react";
 
-const QuoteList = (props) => {
-  return (
-    <main className={styles.container}>
-      Quote List
-    </main>
-  )
-}
+// function App() {
+//   const [quotes, setQuotes] = useState([]);
+//   const [quote, setQuote] = useState("");
 
-export default QuoteList
+//   const handleSubmit = (event) => {
+//     event.preventDefault();
+//     setQuotes([...quotes, quote]);
+//     setQuote("");
+//   };
+
+//   return (
+//     <div>
+//       <form onSubmit={handleSubmit}>
+//         <input
+//           type="text"
+//           value={quote}
+//           onChange={(event) => setQuote(event.target.value)}
+//         />
+//         <button type="submit">Add Quote</button>
+//       </form>
+//       <ul>
+//         {quotes.map((quote, index) => (
+//           <li key={index}>{quote}</li>
+//         ))}
+//       </ul>
+//     </div>
+//   );
+// }
+
+// export default App;
