@@ -9,6 +9,7 @@ import Landing from './pages/Landing/Landing'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import MyProfile from './pages/MyProfile/MyProfile'
 import GoalDetail from './pages/GoalDetail/GoalDetail'
+import QuoteList from './pages/QuoteList/QuoteList'
 
 // components
 import NavBar from './components/NavBar/NavBar'
@@ -16,6 +17,7 @@ import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
 
 // services
 import * as authService from './services/authService'
+import * as QuoteService from './services/QuoteService'
 
 // styles
 import './App.css'
@@ -70,13 +72,15 @@ const App = () => {
             <GoalDetail />
           </ProtectedRoute>
           }
-        // <Route 
-        // path="/goalLists/:stepId/steps"
-        // element={
-        //   <ProtectedRoute user={user}>
-        //   <GoalDetail />
-        // </ProtectedRoute>
-        // }
+          // <Route
+          // path="/quotes"
+          // element={
+          //   <ProtectedRoute user={user}>
+          //     <QuoteList />
+          //   </ProtectedRoute>
+          // }
+        // />
+
         />
       </Routes>
     </>
