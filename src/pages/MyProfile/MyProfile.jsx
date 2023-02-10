@@ -3,8 +3,6 @@ import { useState, useEffect } from 'react'
 import * as goalService from '../../services/goalService'
 import * as profileService from '../../services/profileService'
 import styles from './MyProfile.module.css'
-// import GoalDetail from '../GoalDetail/GoalDetail'
-
 
 const MyProfile = (props) => {
   const [profile, setProfile] = useState(null)
@@ -76,7 +74,6 @@ const MyProfile = (props) => {
               </button>
             </li>
           ))}
-
         </ul>
       </section >
     </main >

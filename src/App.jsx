@@ -51,6 +51,7 @@ const App = () => {
   const handleDeleteQuote = async (id) => {
     const deleteQuote = await quoteService.deleteQuote(id);
     setQuotes(quotes.filter((q) => q._id !== deleteQuote._id));
+    navigate('/quotes')
   };
 
   return (
@@ -95,6 +96,7 @@ const App = () => {
           element={
             <ProtectedRoute user={user}>
               <Quotes
+                user={user}
                 quotes={quotes}
                 handleAddQuote={handleAddQuote}
                 handleDeleteQuote={handleDeleteQuote}

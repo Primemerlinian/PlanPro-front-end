@@ -1,6 +1,5 @@
 import styles from './StepList.module.css'
 
-
 const StepList = (props) => {
 
   return (

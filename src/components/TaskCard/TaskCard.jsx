@@ -5,6 +5,7 @@ import styles from './TaskCard.module.css'
 const TaskCard = (props) => {
 
   const { task } = props
+
   return (
     <main className={styles.container}>
       <article>
@@ -20,7 +21,6 @@ const TaskCard = (props) => {
         <p>This Task is: {task.isComplete ? 'Complete' : 'Incomplete'}</p>
         <p>Description: {task.note}</p>
         <p>Complete By: {task.date} {task.time}</p>
-        {/* <p>{task.time}</p> */}
         <StepList steps={task.steps} />
         <NewStep task={task} handleAddStep={props.handleAddStep} />
       </article>

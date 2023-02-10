@@ -1,7 +1,6 @@
 import { useState } from "react";
 import styles from './NewTask.module.css'
 
-
 const NewTask = (props) => {
   const [form, setForm] = useState({
     note: '',
@@ -13,10 +12,17 @@ const NewTask = (props) => {
   const handleToggle = () => {
     setVisible(!visible)
   }
-
   const handleSubmit = (e) => {
     e.preventDefault()
-    props.handleAddTask(form)
+    const date = new Date(form.date + 'T' + form.time).toLocaleDateString();
+    const time = new Date(form.date + 'T' + form.time).toLocaleTimeString(
+        undefined,
+        {
+          hour: '2-digit',
+          minute: '2-digit'
+        }
+    )
+    props.handleAddTask({ ...form, date, time });
     setVisible(false)
     setForm({
       note: '',
@@ -25,12 +31,10 @@ const NewTask = (props) => {
       time: ''
     })
   }
-
   const handleChange = ({ target }) => {
     setForm({ ...form, [target.name]: target.value })
   }
   console.log(form);
-
   return (
     <main className={styles.container}>
       <div>
@@ -67,15 +71,12 @@ const NewTask = (props) => {
             <label>Time:</label>
             <input
               type='time'
-              min='00:00'
-              max='00:00' 
               name='time'
               value={form.time}
               onChange={handleChange}
             />
             <button type='submit'>Add Task</button>
           </form>
-
         }
       </div>
     </main>

@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import styles from './Quotes.module.css'
-
 
 const Quote = (props) => {
   const [quote, setQuote] = useState({ quote: "" });
@@ -16,8 +14,6 @@ const Quote = (props) => {
 
   return (
     <>
-    <main className={styles.container}>
-  
       <form onSubmit={handleSubmit}>
         <h1>Quote</h1>
         <label> Add an Inspirational Quote here!</label>
@@ -26,25 +22,25 @@ const Quote = (props) => {
           name="quote"
           value={quote.quote}
           onChange={handleChange}
-          />
-        <button
-        type="submit">
+        />
+        <button style={{ color: "black" }} type="submit">
           Submit
         </button>
       </form>
       {props.quotes.map((quote) => (
         <li key={quote._id}>
-          <button
-            onClick={() => props.handleDeleteQuote(quote._id)}
-            >
-              X
-          </button>
           {quote.quote}
+          <button
+            style={{ color: "black" }}
+            onClick={() => props.handleDeleteQuote(quote._id)}
+          >
+            X
+          </button>
         </li>
       ))}
-      </main>
     </>
   );
 };
 
 export default Quote;
+
