@@ -1,20 +1,20 @@
-import React, { useState } from "react";
+import React, { useState } from "react"
 import styles from './NewStep.module.css'
 
 const NewStep = (props) => {
   const [step, setStep] = useState({
     title: ""
-  });
+  })
 
   const handleChange = (event) => {
-    setStep({ ...step, [event.target.name]: event.target.value });
-  };
+    setStep({ ...step, [event.target.name]: event.target.value })
+  }
 
   const handleSubmit = (event) => {
     event.preventDefault();
     props.handleAddStep(props.task._id, step)
     setStep({ title: '' })
-  };
+  }
 
   return (
     <main className={styles.container}>
@@ -34,16 +34,7 @@ const NewStep = (props) => {
         </section>
       </div>
     </main>
-  );
-};
+  )
+}
 
-export default NewStep;
-
-
-
-
-
-
-
-
-
+export default NewStep

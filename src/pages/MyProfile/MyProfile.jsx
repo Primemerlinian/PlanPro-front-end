@@ -42,9 +42,9 @@ const MyProfile = (props) => {
 
   return (
     <main className={styles.container}>
-        <img src={profile.photo} alt="" />
-        <h1>Welcome, {profile.name}</h1>
-        <section>
+      <img src={profile.photo} alt="" />
+      <h1>Welcome, {profile.name}</h1>
+      <section>
         <form
           onSubmit={handleAddGoalList}
           className={styles.form}

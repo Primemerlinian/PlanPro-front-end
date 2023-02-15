@@ -48,7 +48,6 @@ const deleteTask = async (id) => {
   }
 }
 
-
 const createStep = async (taskId, stepData) => {
   try {
     const res = await fetch(`${BASE_URL}/${taskId}/steps`, {
