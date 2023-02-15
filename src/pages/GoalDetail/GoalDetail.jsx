@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom"
 import TaskList from "../../components/TaskList/TaskList"
 import NewTask from "../../components/NewTask/NewTask"
 import * as taskService from "../../services/taskService"
-import styles from './GoalDetail.module.css'
+import styles from "./GoalDetail.module.css"
 
 const GoalDetail = () => {
   const { goalId } = useParams()

@@ -10,7 +10,6 @@
   opacity: 90%;
 }
 
-
 .container button {
   color: rgb(0, 0, 0);
   font-weight: 600;
@@ -18,8 +17,7 @@
   background-color: rgb(255, 255, 255);
 }
 
-.container input,
-button {
+.container input, button {
   width: 100%;
   padding: 12px;
   font-size: 14px;

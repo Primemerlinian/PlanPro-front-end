@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState } from "react"
 import styles from './NewTask.module.css'
 
 const NewTask = (props) => {
@@ -16,7 +16,7 @@ const NewTask = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    const date = new Date(form.date + 'T' + form.time).toLocaleDateString();
+    const date = new Date(form.date + 'T' + form.time).toLocaleDateString()
     const time = new Date(form.date + 'T' + form.time).toLocaleTimeString(
       undefined,
         {
@@ -24,7 +24,7 @@ const NewTask = (props) => {
           minute: '2-digit'
         }
     )
-    props.handleAddTask({ ...form, date, time });
+    props.handleAddTask({ ...form, date, time })
     setVisible(false)
     setForm({
       note: '',

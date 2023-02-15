@@ -1,5 +1,5 @@
-import StepList from "../StepList/StepList";
-import NewStep from "../../pages/NewStep/NewStep";
+import StepList from "../StepList/StepList"
+import NewStep from "../../pages/NewStep/NewStep"
 import styles from './TaskCard.module.css'
 
 const TaskCard = (props) => {
