@@ -25,6 +25,7 @@ const show = async (id) => {
 };
 
 const createQuote = async (quoteData) => {
+  console.log(quoteData)
   try {
     const res = await fetch(BASE_URL, {
       method: "POST",

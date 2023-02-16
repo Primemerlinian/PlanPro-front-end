@@ -9,7 +9,10 @@ import Landing from "./pages/Landing/Landing";
 import ChangePassword from "./pages/ChangePassword/ChangePassword";
 import MyProfile from "./pages/MyProfile/MyProfile";
 import GoalDetail from "./pages/GoalDetail/GoalDetail";
-import Quotes from "./pages/Quotes/Quotes";
+import QuoteList from "./pages/QuoteList/QuoteList";
+import QuoteDetails from "./pages/QuoteDetails/QuoteDetails";
+import NewQuote from "./pages/NewQuote/NewQuote";
+
 
 // components
 import NavBar from "./components/NavBar/NavBar";
@@ -37,13 +40,25 @@ const App = () => {
   };
 
   const handleAddQuote = async (quoteData) => {
-    const newQuote = await quoteService.createQuote(quoteData);
-    setQuotes([newQuote, ...quotes]);
+    if (!quoteData) {
+      // handle case where quoteData is undefined or null
+      console.log("No data provided.")
+      return;
+    }
+    const newQuote = await quoteService.createQuote(quoteData)
+    if (!newQuote) {
+      // handle case where createQuote returns undefined or null
+      console.log("Failed to create quote.")
+      return;
+    }
+    setQuotes([newQuote, ...quotes])
+    navigate('/quotes')
   };
-  
+
   useEffect(() => {
     const fetchAllQuotes = async () => {
       const data = await quoteService.index();
+      console.log(data)
       setQuotes(data);
     };
     if (user) fetchAllQuotes();
@@ -52,7 +67,7 @@ const App = () => {
   const handleDeleteQuote = async (id) => {
     const deleteQuote = await quoteService.deleteQuote(id);
     setQuotes(quotes.filter((q) => q._id !== deleteQuote._id));
-    navigate('/quotes')
+    navigate("/quotes");
   };
 
   return (
@@ -93,17 +108,25 @@ const App = () => {
           }
         />
         <Route
-          path="/quotes"
+          path='/quotes'
           element={
             <ProtectedRoute user={user}>
-              <Quotes
-                user={user}
-                quotes={quotes}
-                handleAddQuote={handleAddQuote}
-                handleDeleteQuote={handleDeleteQuote}
-              />
+              <QuoteList quotes={quotes} />
             </ProtectedRoute>
           }
+        />
+        <Route path='/quotes/:id'
+          element={
+            <ProtectedRoute user={user}>
+              <QuoteDetails user={user} handleDeleteQuote={handleDeleteQuote} />
+            </ProtectedRoute>
+          }
+        />
+        <Route path='/quotes/new' element={
+          <ProtectedRoute user={user}>
+            <NewQuote handleAddQuote={handleAddQuote} />
+          </ProtectedRoute>
+        }
         />
       </Routes>
     </>
