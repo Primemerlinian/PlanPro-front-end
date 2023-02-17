@@ -1,5 +1,5 @@
-import { useState } from "react";
-import TaskCard from "../TaskCard/TaskCard";
+import { useState } from "react"
+import TaskCard from "../TaskCard/TaskCard"
 import styles from './TaskList.module.css'
 
 const TaskList = (props) => {

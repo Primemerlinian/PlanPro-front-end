@@ -1,6 +1,6 @@
 // npm modules
-import { useState, useEffect } from "react";
-import { Routes, Route, useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react"
+import { Routes, Route, useNavigate } from "react-router-dom"
 
 // page components
 import Signup from "./pages/Signup/Signup";
@@ -15,29 +15,30 @@ import NewQuote from "./pages/NewQuote/NewQuote";
 
 
 // components
-import NavBar from "./components/NavBar/NavBar";
-import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
+import NavBar from "./components/NavBar/NavBar"
+import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute"
 
 // services
-import * as authService from "./services/authService";
-import * as quoteService from "./services/quoteService";
+import * as authService from "./services/authService"
+import * as quoteService from "./services/quoteService"
+
 // styles
-import "./App.css";
+import "./App.css"
 
 const App = () => {
-  const [user, setUser] = useState(authService.getUser());
-  const [quotes, setQuotes] = useState([]);
-  const navigate = useNavigate();
+  const [user, setUser] = useState(authService.getUser())
+  const [quotes, setQuotes] = useState([])
+  const navigate = useNavigate()
 
   const handleLogout = () => {
-    authService.logout();
-    setUser(null);
-    navigate("/");
-  };
+    authService.logout()
+    setUser(null)
+    navigate("/")
+  }
 
   const handleSignupOrLogin = () => {
-    setUser(authService.getUser());
-  };
+    setUser(authService.getUser())
+  }
 
   const handleAddQuote = async (quoteData) => {
     if (!quoteData) {
@@ -67,14 +68,17 @@ const App = () => {
   const handleDeleteQuote = async (id) => {
     const deleteQuote = await quoteService.deleteQuote(id);
     setQuotes(quotes.filter((q) => q._id !== deleteQuote._id));
-    navigate("/quotes");
+    navigate('/quotes')
   };
 
   return (
     <>
       <NavBar user={user} handleLogout={handleLogout} />
       <Routes>
-        <Route path="/" element={<Landing user={user} />} />
+        <Route 
+          path="/" 
+          element={<Landing user={user} />} 
+        />
         <Route
           path="/signup"
           element={<Signup handleSignupOrLogin={handleSignupOrLogin} />}
@@ -130,7 +134,7 @@ const App = () => {
         />
       </Routes>
     </>
-  );
-};
+  )
+}
 
-export default App;
+export default App

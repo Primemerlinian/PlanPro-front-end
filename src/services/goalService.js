@@ -24,22 +24,6 @@ const show = async (goalId) => {
   }
 }
 
-const createStep = async (taskId, stepData) => {
-  try {
-    const res = await fetch(`${BASE_URL}/${taskId}/steps`, {
-      method: 'POST',
-      headers: { 
-        'Authorization': `Bearer ${tokenService.getToken()}`,
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(stepData)
-    })
-    return res.json()
-  } catch (error) {
-    console.log(error)
-  }
-}
-
 const createGoal = async (formData) => {
   try {
     const res = await fetch(`${BASE_URL}`, {
@@ -73,7 +57,6 @@ const deleteGoal = async (id) => {
 export { 
   index,
   show,
-  createStep,
   createGoal,
   deleteGoal
 }
