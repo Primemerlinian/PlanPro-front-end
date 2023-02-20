@@ -42,13 +42,11 @@ const App = () => {
 
   const handleAddQuote = async (quoteData) => {
     if (!quoteData) {
-      // handle case where quoteData is undefined or null
       console.log("No data provided.")
       return;
     }
     const newQuote = await quoteService.createQuote(quoteData)
     if (!newQuote) {
-      // handle case where createQuote returns undefined or null
       console.log("Failed to create quote.")
       return;
     }
