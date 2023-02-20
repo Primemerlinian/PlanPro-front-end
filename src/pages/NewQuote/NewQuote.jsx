@@ -32,28 +32,12 @@ const NewQuote = (props) => {
           Submit
         </button>
       </form>
-      {/* {props.quotes.map((quote) => (
-          <>
-        <li key={quote._id}>
-        {quote.author?._id === props.user.profile &&
-        <div className='quotecreation'>
-          <button style={{ color: "black" }}
-          onClick={() => props.handleDeleteQuote(props.quote._id)}
-          >
-            X
-          </button>
-            </div>
-            }
-            {quote.quote}
-        </li>
-            </> */}
-      {/* ))} */}
       </main>
     </>
-  );
-};
+  )
+}
 
-export default NewQuote;
+export default NewQuote
 
 
 

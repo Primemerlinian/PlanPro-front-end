@@ -2,7 +2,6 @@ import styles from "./QuoteDetails.module.css";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import * as quoteService from "../../services/quoteService";
-// import AuthorInfo from "../../components/AuthorInfo/AuthorInfo";
 
 const QuoteDetails = (props) => {
   const { id } = useParams();
@@ -28,7 +27,6 @@ const QuoteDetails = (props) => {
         <p>{quote.quote}</p>
       </article>
       <span>
-        {/* <AuthorInfo content={quote} /> */}
         {quote?.author?._id === props.user.profile && (
           <>
             <button
